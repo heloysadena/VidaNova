@@ -1,0 +1,1516 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VidaNova | Instituto Integrado de Saúde</title>
+
+<meta name="description" content="Instituto VidaNova. Saúde de qualidade, acolhimento e acessibilidade para todos.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --azul: #176B87;
+    --azul-escuro: #10465E;
+    --azul-claro: #EAF7FA;
+    --verde: #31B89A;
+    --branco: #FFFFFF;
+    --texto: #233C4A;
+    --cinza: #6B7D87;
+    --fundo: #F7FBFC;
+    --sombra: 0 12px 35px rgba(20, 80, 100, 0.09);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'DM Sans', sans-serif;
+    color: var(--texto);
+    background: var(--branco);
+    line-height: 1.6;
+}
+
+button, input, select, textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1150px, 90%);
+    margin: auto;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255,255,255,0.96);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 2px 15px rgba(0,0,0,0.04);
+}
+
+.navbar {
+    min-height: 78px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--azul);
+    font-family: 'Manrope', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.logo-icon {
+    width: 43px;
+    height: 43px;
+    background: var(--azul);
+    color: white;
+    border-radius: 13px;
+    display: grid;
+    place-items: center;
+    font-size: 28px;
+}
+
+.logo span {
+    color: var(--verde);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 27px;
+    list-style: none;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.nav-links a:hover {
+    color: var(--verde);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: none;
+    border-radius: 10px;
+    padding: 13px 22px;
+    font-weight: 700;
+    transition: .25s;
+}
+
+.btn-primary {
+    color: white;
+    background: var(--azul);
+}
+
+.btn-primary:hover {
+    background: var(--azul-escuro);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    color: var(--azul);
+    background: white;
+    border: 1px solid #C8E1E9;
+}
+
+.btn-outline:hover {
+    background: var(--azul-claro);
+}
+
+.menu-toggle {
+    display: none;
+    border: none;
+    background: none;
+    font-size: 27px;
+    color: var(--azul);
+}
+
+/* INÍCIO */
+
+.hero {
+    background: linear-gradient(115deg, #EAF7FA 0%, #F8FCFD 60%, #E5F5F2 100%);
+    padding: 75px 0 85px;
+    overflow: hidden;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 50px;
+}
+
+.tag {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: #D7F2EB;
+    color: #16866D;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-family: 'Manrope', sans-serif;
+    font-size: clamp(38px, 5vw, 59px);
+    line-height: 1.13;
+    letter-spacing: -2px;
+    color: var(--azul-escuro);
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: var(--verde);
+}
+
+.hero p {
+    color: var(--cinza);
+    font-size: 17px;
+    max-width: 520px;
+    margin-bottom: 28px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+}
+
+.hero-image {
+    position: relative;
+}
+
+.hero-image img {
+    width: 100%;
+    height: 410px;
+    object-fit: cover;
+    border-radius: 25px;
+    box-shadow: var(--sombra);
+}
+
+.floating-card {
+    position: absolute;
+    bottom: 22px;
+    left: -25px;
+    background: white;
+    padding: 17px 22px;
+    border-radius: 15px;
+    box-shadow: var(--sombra);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.floating-card span {
+    display: block;
+    color: var(--verde);
+    font-size: 12px;
+}
+
+/* INDICADORES */
+
+.stats {
+    padding: 35px 0;
+    background: white;
+    border-bottom: 1px solid #EAF0F2;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+    gap: 20px;
+}
+
+.stat strong {
+    display: block;
+    color: var(--azul);
+    font-size: 25px;
+    font-family: 'Manrope', sans-serif;
+}
+
+.stat span {
+    color: var(--cinza);
+    font-size: 14px;
+}
+
+/* SEÇÕES */
+
+section {
+    scroll-margin-top: 85px;
+}
+
+.section {
+    padding: 85px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 680px;
+    margin: 0 auto 45px;
+}
+
+.section-heading .tag {
+    margin-bottom: 13px;
+}
+
+.section-heading h2 {
+    font-family: 'Manrope', sans-serif;
+    color: var(--azul-escuro);
+    font-size: clamp(29px, 4vw, 39px);
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.section-heading p {
+    color: var(--cinza);
+}
+
+/* ESPECIALIDADES */
+
+.services {
+    background: var(--fundo);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.service-card {
+    background: white;
+    padding: 28px;
+    border-radius: 17px;
+    box-shadow: 0 5px 20px rgba(20,80,100,.04);
+    border: 1px solid #EDF3F5;
+    transition: .3s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--sombra);
+    border-color: #C9E8E7;
+}
+
+.service-icon {
+    width: 55px;
+    height: 55px;
+    background: var(--azul-claro);
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    font-size: 27px;
+    margin-bottom: 19px;
+}
+
+.service-card h3 {
+    color: var(--azul-escuro);
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.service-card p {
+    color: var(--cinza);
+    font-size: 14px;
+    margin-bottom: 18px;
+}
+
+.service-card button {
+    background: none;
+    border: none;
+    color: var(--azul);
+    font-weight: 700;
+}
+
+.service-card button:hover {
+    color: var(--verde);
+}
+
+/* SOBRE */
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 55px;
+}
+
+.about-image img {
+    width: 100%;
+    height: 430px;
+    object-fit: cover;
+    border-radius: 22px;
+    box-shadow: var(--sombra);
+}
+
+.about-content h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--azul-escuro);
+    margin-bottom: 20px;
+}
+
+.about-content p {
+    color: var(--cinza);
+    margin-bottom: 18px;
+}
+
+.feature {
+    display: flex;
+    gap: 13px;
+    margin: 20px 0;
+}
+
+.feature-icon {
+    color: var(--verde);
+    font-size: 23px;
+    font-weight: 800;
+}
+
+.feature h3 {
+    color: var(--azul-escuro);
+    font-size: 16px;
+}
+
+.feature p {
+    font-size: 14px;
+    margin: 3px 0 0;
+}
+
+/* EQUIPE */
+
+.team {
+    background: var(--fundo);
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 17px;
+}
+
+.doctor-card {
+    background: white;
+    border-radius: 17px;
+    padding: 24px 15px;
+    text-align: center;
+    border: 1px solid #EDF3F5;
+    transition: .3s;
+}
+
+.doctor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--sombra);
+}
+
+.doctor-avatar {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 16px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, #D9F2F1, #E7F3FA);
+    border-radius: 50%;
+    color: var(--azul);
+    font-size: 30px;
+}
+
+.doctor-card h3 {
+    color: var(--azul-escuro);
+    font-size: 17px;
+}
+
+.doctor-card p {
+    color: var(--cinza);
+    font-size: 13px;
+    margin: 5px 0 16px;
+}
+
+.doctor-card button {
+    width: 100%;
+    font-size: 12px;
+    padding: 10px 5px;
+}
+
+/* ACESSIBILIDADE */
+
+.accessibility {
+    background: linear-gradient(120deg, var(--azul-escuro), var(--azul));
+    color: white;
+    padding: 70px 0;
+}
+
+.access-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 45px;
+}
+
+.accessibility h2 {
+    font-family: 'Manrope', sans-serif;
+    font-size: 35px;
+    line-height: 1.2;
+    margin-bottom: 18px;
+}
+
+.accessibility p {
+    color: #D8EAF0;
+    margin-bottom: 20px;
+}
+
+.access-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.access-item {
+    padding: 17px;
+    border: 1px solid rgba(255,255,255,.2);
+    background: rgba(255,255,255,.08);
+    border-radius: 12px;
+    font-size: 14px;
+}
+
+/* AGENDAMENTO */
+
+.appointment {
+    background: var(--fundo);
+}
+
+.appointment-box {
+    max-width: 800px;
+    margin: auto;
+    background: white;
+    padding: 38px;
+    border-radius: 22px;
+    box-shadow: var(--sombra);
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group.full {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    color: var(--azul-escuro);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    border: 1px solid #DCE7EA;
+    border-radius: 9px;
+    padding: 13px;
+    width: 100%;
+    background: white;
+    color: var(--texto);
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: var(--verde);
+    box-shadow: 0 0 0 3px rgba(49,184,154,.12);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.appointment-box .btn {
+    margin-top: 24px;
+    width: 100%;
+}
+
+.form-note {
+    text-align: center;
+    font-size: 12px;
+    color: var(--cinza);
+    margin-top: 15px;
+}
+
+.success-message {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #E4F8F0;
+    color: #176B55;
+    border-radius: 12px;
+    text-align: center;
+}
+
+/* EMERGÊNCIA */
+
+.emergency {
+    padding: 45px 0;
+}
+
+.emergency-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 30px;
+    background: #FFF2F0;
+    border: 1px solid #F9D6D1;
+    border-radius: 17px;
+}
+
+.emergency-box h3 {
+    color: #A83D36;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+.emergency-box p {
+    color: #8A5B57;
+    font-size: 14px;
+}
+
+.emergency-box .btn {
+    background: #B9473D;
+    color: white;
+    white-space: nowrap;
+}
+
+/* RODAPÉ */
+
+footer {
+    background: #103E52;
+    color: white;
+    padding: 55px 0 20px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 45px;
+    margin-bottom: 40px;
+}
+
+footer .logo {
+    color: white;
+    margin-bottom: 17px;
+}
+
+footer .logo-icon {
+    background: var(--verde);
+}
+
+footer p {
+    color: #C4D9E1;
+    font-size: 14px;
+    max-width: 360px;
+}
+
+footer h3 {
+    font-size: 16px;
+    margin-bottom: 17px;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+    color: #C4D9E1;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    border-top: 1px solid rgba(255,255,255,.15);
+    padding-top: 20px;
+    text-align: center;
+    font-size: 12px;
+    color: #B9D0D8;
+}
+
+/* MODAL */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(8,30,40,.65);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    width: min(450px, 100%);
+    position: relative;
+    text-align: center;
+    animation: aparecer .25s ease;
+}
+
+.modal-content h2 {
+    color: var(--azul-escuro);
+    margin-bottom: 12px;
+}
+
+.modal-content p {
+    color: var(--cinza);
+    margin-bottom: 20px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    border: none;
+    background: none;
+    font-size: 25px;
+    color: var(--cinza);
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 13px;
+        font-size: 12px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 700px) {
+    .navbar {
+        min-height: 70px;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: white;
+        padding: 20px 5%;
+        flex-direction: column;
+        align-items: stretch;
+        box-shadow: 0 10px 20px rgba(0,0,0,.08);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 8px;
+    }
+
+    .nav-links .btn {
+        width: 100%;
+    }
+
+    .hero {
+        padding: 50px 0;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .access-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-image img {
+        height: 290px;
+    }
+
+    .floating-card {
+        left: 10px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .section {
+        padding: 65px 0;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-image img {
+        height: 300px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full {
+        grid-column: auto;
+    }
+
+    .appointment-box {
+        padding: 23px;
+    }
+
+    .emergency-box {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .access-list {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 380px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container navbar">
+
+        <a href="#inicio" class="logo">
+            <div class="logo-icon">+</div>
+            Vida<span>Nova</span>
+        </a>
+
+        <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#sobre">Sobre nós</a></li>
+            <li><a href="#especialidades">Especialidades</a></li>
+            <li><a href="#equipe">Nossa equipe</a></li>
+            <li><a href="#acessibilidade">Acessibilidade</a></li>
+            <li><a href="#agendamento" class="btn btn-primary">Agendar consulta</a></li>
+        </ul>
+
+    </div>
+</header>
+
+<main>
+
+<!-- INÍCIO -->
+
+<section class="hero" id="inicio">
+    <div class="container hero-grid">
+
+        <div>
+            <span class="tag">Cuidado que transforma vidas</span>
+
+            <h1>Sua saúde merece um novo <span>começo.</span></h1>
+
+            <p>
+                No Instituto VidaNova, unimos tecnologia, acolhimento e profissionais
+                dedicados para oferecer saúde de qualidade e acessível a todos.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#agendamento" class="btn btn-primary">Agendar atendimento →</a>
+                <a href="#sobre" class="btn btn-outline">Conheça o instituto</a>
+            </div>
+        </div>
+
+        <div class="hero-image">
+            <img src="IMG_6196.jpeg" alt="Imagem de divulgação do Instituto VidaNova">
+
+            <div class="floating-card">
+                💚 Cuidado humanizado
+                <span>Você em primeiro lugar</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- INDICADORES -->
+
+<section class="stats">
+    <div class="container stats-grid">
+
+        <div class="stat">
+            <strong>100%</strong>
+            <span>Compromisso com o acolhimento</span>
+        </div>
+
+        <div class="stat">
+            <strong>5</strong>
+            <span>Profissionais em nossa equipe</span>
+        </div>
+
+        <div class="stat">
+            <strong>9+</strong>
+            <span>Áreas de atendimento</span>
+        </div>
+
+    </div>
+</section>
+
+<!-- SOBRE -->
+
+<section class="section" id="sobre">
+    <div class="container about-grid">
+
+        <div class="about-image">
+            <img src="C877B524-E119-43E8-B198-95FF96242659.png" alt="Projeto da estrutura física da clínica VidaNova">
+        </div>
+
+        <div class="about-content">
+
+            <span class="tag">Conheça nossa instituição</span>
+
+            <h2>Mais que uma clínica, um lugar de cuidado e acolhimento.</h2>
+
+            <p>
+                O Instituto VidaNova é um centro integrado de saúde idealizado
+                para atender pessoas de todas as idades, promovendo bem-estar,
+                prevenção e qualidade de vida.
+            </p>
+
+            <p>
+                Nossa proposta é oferecer um ambiente moderno, acessível e
+                humanizado, onde cada paciente seja tratado com respeito,
+                atenção e empatia.
+            </p>
+
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h3>Atendimento humanizado</h3>
+                    <p>Escuta, respeito e atenção às necessidades individuais.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h3>Qualidade e inovação</h3>
+                    <p>Estrutura moderna e compromisso com a excelência.</p>
+                </div>
+            </div>
+
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <div>
+                    <h3>Saúde para todos</h3>
+                    <p>Inclusão, acessibilidade e cuidado sem distinção.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+
+<section class="section services" id="especialidades">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Nossas especialidades</span>
+            <h2>Cuidado completo em todas as fases da vida.</h2>
+            <p>
+                Reunimos diferentes áreas da saúde em um só lugar,
+                proporcionando praticidade, prevenção e acompanhamento.
+            </p>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="service-card">
+                <div class="service-icon">🩺</div>
+                <h3>Consultas médicas</h3>
+                <p>Avaliações, orientações e acompanhamento individualizado para cuidar da sua saúde.</p>
+                <button onclick="selecionarEspecialidade('Consultas médicas')">Agendar atendimento →</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🚑</div>
+                <h3>Emergência</h3>
+                <p>Atendimento inicial para situações urgentes, com acolhimento e encaminhamento adequado.</p>
+                <button onclick="abrirModal('Emergência')">Saiba mais →</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🔬</div>
+                <h3>Exames</h3>
+                <p>Exames e avaliações para auxiliar na prevenção, identificação e acompanhamento de condições de saúde.</p>
+                <button onclick="selecionarEspecialidade('Exames')">Agendar exame →</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">💉</div>
+                <h3>Vacinação</h3>
+                <p>Imunização e orientações para a prevenção de doenças em diferentes faixas etárias.</p>
+                <button onclick="selecionarEspecialidade('Vacinação')">Agendar vacinação →</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🧠</div>
+                <h3>Psicologia e saúde mental</h3>
+                <p>Acolhimento psicológico e acompanhamento para promover equilíbrio e bem-estar emocional.</p>
+                <button onclick="selecionarEspecialidade('Acompanhamento psicológico')">Agendar atendimento →</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">👶</div>
+                <h3>Pediatria</h3>
+                <p>Cuidados com a saúde infantil, crescimento, desenvolvimento e orientação às famílias.</p>
+                <button onclick="selecionarEspecialidade('Pediatria')">Agendar consulta →</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">❤️</div>
+                <h3>Cardiologia</h3>
+                <p>Prevenção e acompanhamento da saúde cardiovascular em todas as fases da vida.</p>
+                <button onclick="selecionarEspecialidade('Cardiologia')">Agendar consulta →</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🦿</div>
+                <h3>Fisioterapia</h3>
+                <p>Reabilitação, mobilidade e promoção da funcionalidade e qualidade de vida.</p>
+                <button onclick="selecionarEspecialidade('Fisioterapia')">Agendar sessão →</button>
+            </div>
+
+            <div class="service-card">
+                <div class="service-icon">🥗</div>
+                <h3>Nutrição</h3>
+                <p>Orientação alimentar individualizada e incentivo a hábitos saudáveis.</p>
+                <button onclick="selecionarEspecialidade('Nutrição')">Agendar consulta →</button>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- EQUIPE -->
+
+<section class="section team" id="equipe">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Nossa equipe</span>
+            <h2>Profissionais dedicados a cuidar de você.</h2>
+            <p>
+                Uma equipe multidisciplinar que trabalha em conjunto
+                para proporcionar um atendimento acolhedor e completo.
+            </p>
+        </div>
+
+        <div class="team-grid">
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3>Helo ysa</h3>
+                <p>Clínica geral</p>
+                <button class="btn btn-primary" onclick="selecionarMedico('Helo ysa')">Agendar</button>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👨‍⚕️</div>
+                <h3>Gabriel</h3>
+                <p>Cardiologia</p>
+                <button class="btn btn-primary" onclick="selecionarMedico('Gabriel')">Agendar</button>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3>Ana</h3>
+                <p>Pediatria</p>
+                <button class="btn btn-primary" onclick="selecionarMedico('Ana')">Agendar</button>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👩‍⚕️</div>
+                <h3>Cláudia</h3>
+                <p>Psicologia</p>
+                <button class="btn btn-primary" onclick="selecionarMedico('Cláudia')">Agendar</button>
+            </div>
+
+            <div class="doctor-card">
+                <div class="doctor-avatar">👨‍⚕️</div>
+                <h3>Gustavo</h3>
+                <p>Fisioterapia</p>
+                <button class="btn btn-primary" onclick="selecionarMedico('Gustavo')">Agendar</button>
+            </div>
+
+        </div>
+
+        <p style="text-align:center;color:#6B7D87;font-size:12px;margin-top:20px;">
+            Equipe e especialidades ilustrativas para o projeto acadêmico.
+        </p>
+
+    </div>
+</section>
+
+<!-- ACESSIBILIDADE -->
+
+<section class="accessibility" id="acessibilidade">
+    <div class="container access-grid">
+
+        <div>
+            <span class="tag">Nosso compromisso</span>
+
+            <h2>Saúde de qualidade deve ser um direito de todos.</h2>
+
+            <p>
+                A VidaNova acredita que o cuidado começa com o respeito.
+                Por isso, nossa instituição foi idealizada para oferecer
+                acolhimento, inclusão e acessibilidade em cada atendimento.
+            </p>
+
+            <a href="#agendamento" class="btn btn-outline">Conheça nossos atendimentos</a>
+        </div>
+
+        <div class="access-list">
+
+            <div class="access-item">♿ Estrutura acessível para pessoas com mobilidade reduzida</div>
+
+            <div class="access-item">🤝 Atendimento respeitoso e inclusivo</div>
+
+            <div class="access-item">💬 Comunicação clara e acolhedora</div>
+
+            <div class="access-item">🏥 Ambiente organizado e confortável</div>
+
+            <div class="access-item">👨‍👩‍👧 Atenção a todas as faixas etárias</div>
+
+            <div class="access-item">💚 Promoção da saúde e prevenção</div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- IMAGEM DE DIVULGAÇÃO -->
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Nosso espaço</span>
+            <h2>Um ambiente pensado para o seu bem-estar.</h2>
+            <p>
+                Cada detalhe da VidaNova foi idealizado para tornar
+                a experiência dos pacientes mais acolhedora e confortável.
+            </p>
+        </div>
+
+        <div style="max-width:850px;margin:auto;">
+            <img
+                src="IMG_6197.jpeg"
+                alt="Imagem institucional VidaNova"
+                style="width:100%;max-height:480px;object-fit:cover;border-radius:22px;box-shadow:var(--sombra);">
+        </div>
+
+    </div>
+</section>
+
+<!-- AGENDAMENTO -->
+
+<section class="section appointment" id="agendamento">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="tag">Agendamento online</span>
+            <h2>Agende seu atendimento.</h2>
+            <p>
+                Preencha os dados abaixo para simular o agendamento
+                de uma consulta na instituição VidaNova.
+            </p>
+        </div>
+
+        <div class="appointment-box">
+
+            <form id="appointmentForm">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label for="nome">Nome completo</label>
+                        <input type="text" id="nome" placeholder="Digite seu nome" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefone">Telefone</label>
+                        <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="especialidade">Especialidade</label>
+                        <select id="especialidade" required>
+                            <option value="">Selecione uma área</option>
+                            <option>Consultas médicas</option>
+                            <option>Emergência</option>
+                            <option>Exames</option>
+                            <option>Vacinação</option>
+                            <option>Acompanhamento psicológico</option>
+                            <option>Pediatria</option>
+                            <option>Cardiologia</option>
+                            <option>Fisioterapia</option>
+                            <option>Nutrição</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medico">Profissional</label>
+                        <select id="medico" required>
+                            <option value="">Selecione um profissional</option>
+                            <option>Helo ysa</option>
+                            <option>Gabriel</option>
+                            <option>Ana</option>
+                            <option>Cláudia</option>
+                            <option>Gustavo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="data">Data desejada</label>
+                        <input type="date" id="data" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="horario">Horário desejado</label>
+                        <select id="horario" required>
+                            <option value="">Selecione um horário</option>
+                            <option>08:00</option>
+                            <option>09:00</option>
+                            <option>10:00</option>
+                            <option>11:00</option>
+                            <option>13:00</option>
+                            <option>14:00</option>
+                            <option>15:00</option>
+                            <option>16:00</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label for="observacoes">Observações (opcional)</label>
+                        <textarea id="observacoes" placeholder="Escreva alguma informação que deseja compartilhar."></textarea>
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Confirmar agendamento →
+                </button>
+
+                <p class="form-note">
+                    Demonstração acadêmica. Nenhum dado será enviado ou armazenado.
+                </p>
+
+                <div class="success-message" id="successMessage" role="status"></div>
+
+            </form>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- EMERGÊNCIA -->
+
+<section class="emergency">
+    <div class="container">
+
+        <div class="emergency-box">
+
+            <div>
+                <h3>🚨 Precisa de atendimento de emergência?</h3>
+                <p>
+                    Em situações de risco imediato à vida, procure um serviço
+                    de emergência ou ligue para o SAMU, no número 192.
+                </p>
+            </div>
+
+            <a href="tel:192" class="btn">Ligar 192</a>
+
+        </div>
+
+    </div>
+</section>
+
+</main>
+
+<!-- RODAPÉ -->
+
+<footer>
+    <div class="container">
+
+        <div class="footer-grid">
+
+            <div>
+                <a href="#inicio" class="logo">
+                    <div class="logo-icon">+</div>
+                    VidaNova
+                </a>
+
+                <p>
+                    Instituto Integrado de Saúde. Cuidar hoje para
+                    transformar o amanhã. Saúde, respeito e acolhimento
+                    em cada etapa da vida.
+                </p>
+            </div>
+
+            <div>
+                <h3>Navegação</h3>
+
+                <ul class="footer-links">
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#sobre">Sobre nós</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#equipe">Nossa equipe</a></li>
+                    <li><a href="#agendamento">Agendamentos</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>Nosso compromisso</h3>
+
+                <ul class="footer-links">
+                    <li>Saúde de qualidade</li>
+                    <li>Atendimento humanizado</li>
+                    <li>Acessibilidade</li>
+                    <li>Prevenção de doenças</li>
+                    <li>Bem-estar e inclusão</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="copyright">
+            © 2026 Instituto VidaNova. Projeto acadêmico desenvolvido para fins educacionais.
+            <br>
+            Cuidar hoje para transformar o amanhã. 💚
+        </div>
+
+    </div>
+</footer>
+
+<!-- JANELA INTERATIVA -->
+
+<div class="modal" id="infoModal" onclick="fecharModalFora(event)">
+    <div class="modal-content">
+
+        <button class="modal-close" onclick="fecharModal()" aria-label="Fechar">×</button>
+
+        <div style="font-size:45px;margin-bottom:15px;">💚</div>
+
+        <h2 id="modalTitle">VidaNova</h2>
+
+        <p id="modalText"></p>
+
+        <button class="btn btn-primary" onclick="fecharModal()">Entendi</button>
+
+    </div>
+</div>
+
+<script>
+
+// MENU PARA CELULAR
+
+const menuToggle = document.getElementById('menuToggle');
+const navLinks = document.getElementById('navLinks');
+
+menuToggle.addEventListener('click', function() {
+    navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+    link.addEventListener('click', function() {
+        navLinks.classList.remove('active');
+    });
+});
+
+// DATA MÍNIMA DO AGENDAMENTO
+
+const campoData = document.getElementById('data');
+
+const hoje = new Date();
+const ano = hoje.getFullYear();
+const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+const dia = String(hoje.getDate()).padStart(2, '0');
+
+campoData.min = `${ano}-${mes}-${dia}`;
+
+// SELECIONAR ESPECIALIDADE
+
+function selecionarEspecialidade(especialidade) {
+    document.getElementById('especialidade').value = especialidade;
+
+    document.getElementById('agendamento').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+// SELECIONAR MÉDICO
+
+function selecionarMedico(medico) {
+    document.getElementById('medico').value = medico;
+
+    document.getElementById('agendamento').scrollIntoView({
+        behavior: 'smooth'
+    });
+}
+
+// MODAL INTERATIVO
+
+function abrirModal(titulo) {
+    document.getElementById('modalTitle').textContent = titulo;
+
+    document.getElementById('modalText').textContent =
+        'No Instituto VidaNova, nosso compromisso é oferecer acolhimento, orientação e cuidado responsável. Em situações de emergência real, procure atendimento imediato em um serviço de urgência.';
+
+    document.getElementById('infoModal').classList.add('active');
+}
+
+function fecharModal() {
+    document.getElementById('infoModal').classList.remove('active');
+}
+
+function fecharModalFora(event) {
+    if (event.target.id === 'infoModal') {
+        fecharModal();
+    }
+}
+
+// FORMULÁRIO DE AGENDAMENTO
+
+document.getElementById('appointmentForm').addEventListener('submit', function(event) {
+
+    event.preventDefault();
+
+    const nome = document.getElementById('nome').value.trim();
+    const especialidade = document.getElementById('especialidade').value;
+    const medico = document.getElementById('medico').value;
+    const data = document.getElementById('data').value;
+    const horario = document.getElementById('horario').value;
+
+    if (!nome || !especialidade || !medico || !data || !horario) {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+    }
+
+    const dataFormatada = new Date(data + 'T12:00:00').toLocaleDateString('pt-BR');
+
+    const mensagem = document.getElementById('successMessage');
+
+    mensagem.innerHTML = `
+        <h3>✓ Agendamento demonstrativo realizado!</h3>
+        <br>
+        <p><strong>Paciente:</strong> ${nome.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>
+        <p><strong>Especialidade:</strong> ${especialidade}</p>
+        <p><strong>Profissional:</strong> ${medico}</p>
+        <p><strong>Data:</strong> ${dataFormatada}</p>
+        <p><strong>Horário:</strong> ${horario}</p>
+        <br>
+        <p>Esta é uma confirmação visual para a apresentação do projeto. Nenhuma consulta real foi marcada.</p>
+    `;
+
+    mensagem.style.display = 'block';
+
+    mensagem.scrollIntoView({
+        behavior: 'smooth',
+        block: 'nearest'
+    });
+
+});
+
+</script>
+
+</body>
+</html>
